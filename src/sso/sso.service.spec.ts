@@ -30,4 +30,10 @@ describe('SsoService', () => {
     expect(service.get(key)).toEqual(user);
   });
 
+  it('deve lançar uma exceção caso não exista um usuário com a key especificada', () => {
+    expect(() => {
+      service.get(123);
+    }).toThrowError();
+  });
+
 });

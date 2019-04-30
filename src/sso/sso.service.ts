@@ -13,6 +13,10 @@ export class SsoService {
     }
 
     get(key: number): UserDTO {
-        return this.users.get(key);
+        const user = this.users.get(key);
+        if (!user) {
+            throw new Error('Usuário não está em cache.');
+        }
+        return user;
     }
 }
