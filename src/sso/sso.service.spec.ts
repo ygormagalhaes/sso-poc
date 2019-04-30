@@ -21,10 +21,6 @@ describe('SsoService', () => {
     service = module.get<SsoService>(SsoService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-
   it('deve adicionar um novo usuário ao cache', () => {
     const key = service.add(user);
     expect(service.get(key)).toEqual(user);
