@@ -4,14 +4,15 @@ import { UserDTO } from './user.dto';
 @Injectable()
 export class SsoService {
 
-    private readonly users: Map<string, UserDTO> = new Map();
+    private readonly users: Map<number, UserDTO> = new Map();
 
     add(user: UserDTO) {
-        this.users.set(user.login, user);
-        return user.login;
+        const key = new Date().getUTCMilliseconds();
+        this.users.set(key, user);
+        return key;
     }
 
-    get(login: string): UserDTO {
-        return this.users.get(login);
+    get(key: number): UserDTO {
+        return this.users.get(key);
     }
 }

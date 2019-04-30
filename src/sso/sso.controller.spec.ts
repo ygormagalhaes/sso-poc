@@ -1,3 +1,4 @@
+import { SsoService } from './sso.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { SsoController } from './sso.controller';
 
@@ -7,6 +8,7 @@ describe('Sso Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [SsoController],
+      providers: [SsoService],
     }).compile();
 
     controller = module.get<SsoController>(SsoController);

@@ -26,8 +26,8 @@ describe('SsoService', () => {
   });
 
   it('deve adicionar um novo usuário ao cache', () => {
-    service.add(user);
-    expect(service.get(user.login)).toEqual(user);
+    const key = service.add(user);
+    expect(service.get(key)).toEqual(user);
   });
 
 });
